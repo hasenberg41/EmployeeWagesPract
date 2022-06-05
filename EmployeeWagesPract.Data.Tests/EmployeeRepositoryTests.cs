@@ -1,6 +1,3 @@
-using EmployeeWagesPract.Core;
-using Microsoft.EntityFrameworkCore;
-
 namespace EmployeeWagesPract.Data.Tests
 {
     public class EmployeeRepositoryTests : IDisposable
@@ -75,8 +72,7 @@ namespace EmployeeWagesPract.Data.Tests
         [Fact]
         public void GetEmployeeById_ShouldThrowNotFoundException()
         {
-            var employee = _repository.Get(400);
-
+            Assert.Throws<EmployeeNotFoundException>(() => _repository.Get(400));
         }
 
         public void Dispose()

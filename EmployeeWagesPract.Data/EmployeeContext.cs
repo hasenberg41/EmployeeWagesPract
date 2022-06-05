@@ -26,7 +26,13 @@ namespace EmployeeWagesPract.Data
 
         public int Create(Core.Employee newEmployee)
         {
-            throw new NotImplementedException();
+            var employee = new Employee()
+            {
+                Surname = newEmployee.Surname,
+                WageAfterTaxes = newEmployee.WageAfterTaxes,
+                WageBeforeTaxes = newEmployee.WageBeforeTaxes
+            };
+            // TODO : доделать и протестировать
         }
 
         public List<Core.Employee> Get()
