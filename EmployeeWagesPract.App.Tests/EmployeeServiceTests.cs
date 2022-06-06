@@ -16,12 +16,21 @@ namespace EmployeeWagesPract.App.Tests
         }
 
         [Fact]
-        public void GetAll()
+        public void GetAll_ShouldReturnedAllEmployees()
         {
             var exceptedEmployees = _fixture.CreateMany<Employee>(20).ToList();
             _repository.Setup(o => o.Get()).Returns(exceptedEmployees);
 
             var employees = _service.Get();
+
+            Assert.Equal(exceptedEmployees.Count, employees.Count);
+            for (int i = 0; i < exceptedEmployees.Count; i++)
+            {
+                Assert.Equal(exceptedEmployees[i].Surname, employees[i].Surname);
+                Assert.Equal(exceptedEmployees[i].WageAfterTaxes, employees[i].WageAfterTaxes);
+                Assert.Equal(exceptedEmployees[i].WageBeforeTaxes, employees[i].WageBeforeTaxes);
+            }
+            _repository.Verify(r => r.Get(), Times.Once);
         }
     }
 }
