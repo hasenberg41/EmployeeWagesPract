@@ -32,7 +32,10 @@ namespace EmployeeWagesPract.Data
                 WageAfterTaxes = newEmployee.WageAfterTaxes,
                 WageBeforeTaxes = newEmployee.WageBeforeTaxes
             };
-            // TODO : доделать и протестировать
+            var entityEntry = Employees.Add(employee);
+
+            SaveChanges();
+            return entityEntry.Entity.Id;
         }
 
         public List<Core.Employee> Get()

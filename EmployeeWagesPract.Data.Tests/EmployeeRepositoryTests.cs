@@ -75,6 +75,22 @@ namespace EmployeeWagesPract.Data.Tests
             Assert.Throws<EmployeeNotFoundException>(() => _repository.Get(400));
         }
 
+        [Fact]
+        public void CreateNewEmployee_ShouldReturnEmployeeId()
+        {
+            var random = new Random();
+            var expectedId = employeesOnDefault.Count + 1;
+            var newEmployee = new Employee()
+            {
+                Surname = "Test",
+                WageAfterTaxes = random.Next()
+            };
+
+            var returnedId = _repository.Create(newEmployee);
+
+            Assert.Equal(expectedId, returnedId);
+        }
+
         public void Dispose()
         {
             _repository.Database.EnsureDeleted();
