@@ -1,5 +1,3 @@
-using EmployeeWagesPract.Core.Interfaces;
-
 namespace EmployeeWagesPract.App.Tests
 {
     public class EmployeeServiceTests
@@ -31,6 +29,28 @@ namespace EmployeeWagesPract.App.Tests
                 Assert.Equal(exceptedEmployees[i].WageBeforeTaxes, employees[i].WageBeforeTaxes);
             }
             _repository.Verify(r => r.Get(), Times.Once);
+        }
+
+        [Fact]
+        public void GetById_ShouldReturnCurrectEmployee()
+        {
+            var exceptedEmployee = _fixture.Create<Employee>();
+            var exceptedId = _fixture.Create<int>();
+            _repository.Setup(o => o.Get(exceptedId)).Returns(exceptedEmployee);
+
+            var returnedEmployee = _service.Get(exceptedId);
+
+            Assert.Equal(exceptedEmployee.Surname, returnedEmployee.Surname);
+            Assert.Equal(exceptedEmployee.WageAfterTaxes, returnedEmployee.WageAfterTaxes);
+            Assert.Equal(exceptedEmployee.WageBeforeTaxes, returnedEmployee.WageBeforeTaxes);
+            _repository.Verify(r => r.Get(exceptedId), Times.Once);
+        }
+
+        [Fact]
+        public void GetById_ShouldThrowEmployeeNotFoundException()
+        {
+            Assert.Throws<EmployeeNotFoundException>(() => _service.Get(-1));
+            _repository.Verify(r => r.Get(-1), Times.Never);
         }
     }
 }
