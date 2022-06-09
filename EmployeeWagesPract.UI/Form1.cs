@@ -13,25 +13,11 @@ namespace EmployeeWagesPract.UI
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void Exit_Click(object sender, EventArgs e) => Close();
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
+        private void Minimize_Click(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
 
-        private void label5_MouseMove(object sender, MouseEventArgs e)
-        {
-            label5.Cursor = Cursors.Hand;
-        }
-
-        private void label4_MouseMove(object sender, MouseEventArgs e)
-        {
-            label4.Cursor = Cursors.Hand;
-        }
+        private void MouseMove_Handle(object sender, MouseEventArgs e) => exitButton.Cursor = Cursors.Hand;
 
         protected void guna2GradientButton1_Click(object sender, EventArgs e)
         {
@@ -61,6 +47,11 @@ namespace EmployeeWagesPract.UI
             };
 
             _service.Delete(deletedEmployee);
+        }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Для удаления выделите строку и нажмите на кнопку \"Delete\"", "Подсказка");
         }
     }
 }

@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -39,18 +40,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.WageAfter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WageBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WageBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WageAfter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2DragControl3 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2DragControl4 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.helpButton = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.minButton = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.exitButton = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -123,30 +125,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(780, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 21);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "x";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            this.label4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label4_MouseMove);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(764, -2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(17, 21);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "_";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            this.label5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label5_MouseMove);
-            // 
             // guna2GradientButton1
             // 
             this.guna2GradientButton1.Animated = true;
@@ -194,24 +172,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
-            // 
-            // WageAfter
-            // 
-            this.WageAfter.HeaderText = "з/п после вычета налогов";
-            this.WageAfter.Name = "WageAfter";
-            this.WageAfter.ReadOnly = true;
-            // 
-            // WageBefore
-            // 
-            this.WageBefore.HeaderText = "Заработная плата";
-            this.WageBefore.Name = "WageBefore";
-            this.WageBefore.ReadOnly = true;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Фамилия";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
             // 
             // guna2DataGridView1
             // 
@@ -276,6 +236,24 @@
             this.guna2DataGridView1.Visible = false;
             this.guna2DataGridView1.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.guna2DataGridView1_UserDeletedRow);
             // 
+            // Name
+            // 
+            this.Name.HeaderText = "Фамилия";
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            // 
+            // WageBefore
+            // 
+            this.WageBefore.HeaderText = "Заработная плата";
+            this.WageBefore.Name = "WageBefore";
+            this.WageBefore.ReadOnly = true;
+            // 
+            // WageAfter
+            // 
+            this.WageAfter.HeaderText = "з/п после вычета налогов";
+            this.WageAfter.Name = "WageAfter";
+            this.WageAfter.ReadOnly = true;
+            // 
             // guna2DragControl2
             // 
             this.guna2DragControl2.DockIndicatorTransparencyValue = 0.6D;
@@ -294,20 +272,79 @@
             this.guna2DragControl4.TargetControl = this.pictureBox2;
             this.guna2DragControl4.UseTransparentDrag = true;
             // 
+            // helpButton
+            // 
+            this.helpButton.Animated = true;
+            this.helpButton.AnimatedGIF = true;
+            this.helpButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.helpButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.helpButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.helpButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.helpButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.helpButton.ForeColor = System.Drawing.Color.White;
+            this.helpButton.Location = new System.Drawing.Point(700, 4);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.helpButton.Size = new System.Drawing.Size(28, 23);
+            this.helpButton.TabIndex = 11;
+            this.helpButton.Text = "?";
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            this.helpButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMove_Handle);
+            // 
+            // minButton
+            // 
+            this.minButton.Animated = true;
+            this.minButton.AnimatedGIF = true;
+            this.minButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.minButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.minButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.minButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.minButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.minButton.ForeColor = System.Drawing.Color.White;
+            this.minButton.Location = new System.Drawing.Point(734, 4);
+            this.minButton.Name = "minButton";
+            this.minButton.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.minButton.Size = new System.Drawing.Size(28, 24);
+            this.minButton.TabIndex = 12;
+            this.minButton.Text = "_";
+            this.minButton.Click += new System.EventHandler(this.Minimize_Click);
+            this.minButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMove_Handle);
+            // 
+            // exitButton
+            // 
+            this.exitButton.Animated = true;
+            this.exitButton.AnimatedGIF = true;
+            this.exitButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.exitButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.exitButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.exitButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.exitButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.exitButton.ForeColor = System.Drawing.Color.White;
+            this.exitButton.Location = new System.Drawing.Point(768, 5);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.exitButton.Size = new System.Drawing.Size(28, 23);
+            this.exitButton.TabIndex = 13;
+            this.exitButton.Text = "x";
+            this.exitButton.Click += new System.EventHandler(this.Exit_Click);
+            this.exitButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMove_Handle);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.helpButton);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.guna2DataGridView1);
+            this.Controls.Add(this.minButton);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.guna2GradientButton2);
             this.Controls.Add(this.guna2GradientButton1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.guna2Panel1.ResumeLayout(false);
@@ -316,7 +353,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -328,17 +364,18 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private Label label5;
-        private Label label4;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
         private PictureBox pictureBox2;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
-        private DataGridViewTextBoxColumn Name;
-        private DataGridViewTextBoxColumn WageBefore;
-        private DataGridViewTextBoxColumn WageAfter;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl3;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl4;
+        private Guna.UI2.WinForms.Guna2CircleButton exitButton;
+        private Guna.UI2.WinForms.Guna2CircleButton minButton;
+        private Guna.UI2.WinForms.Guna2CircleButton helpButton;
+        private DataGridViewTextBoxColumn Name;
+        private DataGridViewTextBoxColumn WageBefore;
+        private DataGridViewTextBoxColumn WageAfter;
     }
 }
