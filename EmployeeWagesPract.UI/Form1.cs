@@ -1,7 +1,4 @@
-using EmployeeWagesPract.Core;
 using EmployeeWagesPract.Core.Interfaces;
-using Microsoft.Extensions.Logging;
-using System.Runtime.InteropServices;
 
 namespace EmployeeWagesPract.UI
 {
@@ -9,33 +6,48 @@ namespace EmployeeWagesPract.UI
     {
         private readonly IEmployeeService _service;
 
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AllocConsole();
-
         public Form1(IEmployeeService service)
         {
             _service = service;
             InitializeComponent();
         }
 
-        private void button1_MouseClick(object sender, MouseEventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
-            _service.Add(new Employee()
-            {
-                Surname = "wdwd",
-                WageAfterTaxes = 45050
-            });
-            _service.Add(new Employee()
-            {
-                Surname = "wdsadaswd",
-                WageAfterTaxes = 1231312
-            });
+            Close();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void label5_MouseMove(object sender, MouseEventArgs e)
+        {
+            label5.Cursor = Cursors.Hand;
+        }
+
+        private void label4_MouseMove(object sender, MouseEventArgs e)
+        {
+            label4.Cursor = Cursors.Hand;
+        }
+
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+            NewUserForm newUserForm = new(_service);
+            newUserForm.Show();
+        }
+
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
+        {
+            guna2DataGridView1.Visible = true;
+            guna2GradientButton2.Text = "Обновить";
+            guna2DataGridView1.Rows.Clear();
 
             var employees = _service.Get();
-            foreach (var emp in employees)
+            foreach (var employee in employees)
             {
-                textBox1.Text += $"{emp.Surname} {emp.WageBeforeTaxes} {emp.WageAfterTaxes}{Environment.NewLine}";
+                guna2DataGridView1.Rows.Add(employee.Surname, employee.WageAfterTaxes, employee.WageBeforeTaxes);
             }
         }
     }

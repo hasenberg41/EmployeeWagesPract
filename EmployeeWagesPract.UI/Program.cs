@@ -36,7 +36,8 @@ namespace EmployeeWagesPract.UI
             services.AddDbContext<IEmployeeRepository, EmployeeContext>(options => 
                 options.UseSqlite(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
                 .AddScoped<IEmployeeService, EmployeeService>()
-                .AddScoped<Form1>();
+                .AddScoped<Form1>()
+                .AddScoped<NewUserForm>();
         }
     }
 }
