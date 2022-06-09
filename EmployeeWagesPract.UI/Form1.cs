@@ -1,3 +1,4 @@
+using EmployeeWagesPract.Core;
 using EmployeeWagesPract.Core.Interfaces;
 
 namespace EmployeeWagesPract.UI
@@ -49,6 +50,17 @@ namespace EmployeeWagesPract.UI
             {
                 guna2DataGridView1.Rows.Add(employee.Surname, employee.WageAfterTaxes, employee.WageBeforeTaxes);
             }
+        }
+
+        private void guna2DataGridView1_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            var deletedEmployee = new Employee
+            {
+                Surname = (string)e.Row.Cells[0].Value,
+                WageAfterTaxes = (int)e.Row.Cells[1].Value
+            };
+
+            _service.Delete(deletedEmployee);
         }
     }
 }

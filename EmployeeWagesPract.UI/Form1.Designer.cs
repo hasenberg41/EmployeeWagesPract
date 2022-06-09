@@ -149,6 +149,8 @@
             // 
             // guna2GradientButton1
             // 
+            this.guna2GradientButton1.Animated = true;
+            this.guna2GradientButton1.AnimatedGIF = true;
             this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -166,6 +168,8 @@
             // 
             // guna2GradientButton2
             // 
+            this.guna2GradientButton2.Animated = true;
+            this.guna2GradientButton2.AnimatedGIF = true;
             this.guna2GradientButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -270,6 +274,7 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView1.Visible = false;
+            this.guna2DataGridView1.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.guna2DataGridView1_UserDeletedRow);
             // 
             // guna2DragControl2
             // 

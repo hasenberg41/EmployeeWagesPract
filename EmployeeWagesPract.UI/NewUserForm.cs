@@ -1,14 +1,5 @@
 ﻿using EmployeeWagesPract.Core;
 using EmployeeWagesPract.Core.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace EmployeeWagesPract.UI
 {
@@ -35,16 +26,6 @@ namespace EmployeeWagesPract.UI
         private void label4_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void label5_MouseMove(object sender, MouseEventArgs e)
-        {
-            label5.Cursor = Cursors.Hand;
         }
 
         private void label4_MouseMove(object sender, MouseEventArgs e)
