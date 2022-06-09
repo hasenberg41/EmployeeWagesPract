@@ -2,6 +2,9 @@ using EmployeeWagesPract.App;
 using EmployeeWagesPract.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using EmployeeWagesPract.Core.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace EmployeeWagesPract.UI
 {
@@ -15,15 +18,25 @@ namespace EmployeeWagesPract.UI
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            var builder = new DbContextOptionsBuilder();
-            builder.UseSqlite(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString);
 
-            var repository = new EmployeeContext(builder.Options);
+            var services = new ServiceCollection();
+            
+            ConfigureServices(services);
 
-            var service = new EmployeeService(repository);
+            using ServiceProvider serviceProvider = services.BuildServiceProvider();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1(service));
+
+            var form1 = serviceProvider.GetRequiredService<Form1>();
+            Application.Run(form1);
+        }
+
+        private static void ConfigureServices(ServiceCollection services)
+        {
+            services.AddDbContext<IEmployeeRepository, EmployeeContext>(options => 
+                options.UseSqlite(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
+                .AddScoped<IEmployeeService, EmployeeService>()
+                .AddScoped<Form1>();
         }
     }
 }
