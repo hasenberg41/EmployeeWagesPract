@@ -32,7 +32,7 @@ namespace EmployeeWagesPract.UI
             label4.Cursor = Cursors.Hand;
         }
 
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        protected void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             NewUserForm newUserForm = new(_service);
             newUserForm.Show();

@@ -33,5 +33,10 @@ namespace EmployeeWagesPract.App
 
             return _repository.Get(id);
         }
+
+        public void Delete(Employee employee)
+        {
+            _repository.Delete(employee);
+        }
     }
 }

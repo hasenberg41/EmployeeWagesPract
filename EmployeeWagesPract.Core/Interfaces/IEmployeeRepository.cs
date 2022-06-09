@@ -7,5 +7,7 @@
         Employee Get(int id);
 
         int Create(Employee newEmployee);
+
+        void Delete(Employee employee);
     }
 }

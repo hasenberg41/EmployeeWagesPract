@@ -59,5 +59,18 @@ namespace EmployeeWagesPract.Data
                 WageAfterTaxes = employee.WageAfterTaxes
             };
         }
+
+        public void Delete(Core.Employee employee)
+        {
+            var deletedEmployee = Employees.FirstOrDefault(
+                e => e.Surname == employee.Surname 
+                && e.WageBeforeTaxes == employee.WageBeforeTaxes);
+
+            if (deletedEmployee is null)
+                throw new EmployeeNotFoundException(employee);
+
+            Employees.Remove(deletedEmployee);
+            SaveChanges();
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace EmployeeWagesPract.Core.Exceptions
 {
     public class EmployeeNotFoundException : Exception
     {
-        public EmployeeNotFoundException(int id) : base($"Employee /{id}/ not found in database. ")
+        public EmployeeNotFoundException(object key) : base($"Employee /{key}/ not found in database. ")
         {
         }
     }

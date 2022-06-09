@@ -64,6 +64,7 @@ namespace EmployeeWagesPract.UI
                 };
 
                 _service.Add(employee);
+                Close();
             }
             else MessageBox.Show("Вы ввели некорректное значение", "Неправильный ввод");
         }

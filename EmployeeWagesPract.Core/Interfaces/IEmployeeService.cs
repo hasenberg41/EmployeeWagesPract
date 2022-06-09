@@ -7,5 +7,7 @@
         List<Employee> Get();
 
         Employee Get(int id);
+
+        void Delete(Employee employee);
     }
 }

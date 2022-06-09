@@ -91,6 +91,18 @@ namespace EmployeeWagesPract.Data.Tests
             Assert.Equal(expectedId, returnedId);
         }
 
+        [Theory]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(2)]
+        public void DeleteEmployee_ShouldDeleted(int index)
+        {
+            var deletedEmployee = employeesOnDefault[index];
+            _repository.Delete(deletedEmployee);
+
+            Assert.Throws<EmployeeNotFoundException>(() => _repository.Get(index + 1));
+        }
+
         public void Dispose()
         {
             _repository.Database.EnsureDeleted();
