@@ -15,7 +15,7 @@ namespace EmployeeWagesPract.App
 
         public int Add(Employee newEmployee)
         {
-            if (newEmployee.WageAfterTaxes < 0)
+            if (newEmployee.WageBeforeTaxes < 0)
                 throw new WageOfEmployeeException(newEmployee);
 
             return _repository.Create(newEmployee);
