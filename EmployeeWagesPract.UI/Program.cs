@@ -1,10 +1,9 @@
 using EmployeeWagesPract.App;
+using EmployeeWagesPract.Core.Interfaces;
 using EmployeeWagesPract.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using EmployeeWagesPract.Core.Interfaces;
-using Microsoft.Extensions.Logging;
+using System.Configuration;
 
 namespace EmployeeWagesPract.UI
 {
@@ -20,7 +19,7 @@ namespace EmployeeWagesPract.UI
             // see https://aka.ms/applicationconfiguration.
 
             var services = new ServiceCollection();
-            
+
             ConfigureServices(services);
 
             using ServiceProvider serviceProvider = services.BuildServiceProvider();
@@ -33,7 +32,7 @@ namespace EmployeeWagesPract.UI
 
         private static void ConfigureServices(ServiceCollection services)
         {
-            services.AddDbContext<IEmployeeRepository, EmployeeContext>(options => 
+            services.AddDbContext<IEmployeeRepository, EmployeeContext>(options =>
                 options.UseSqlite(ConfigurationManager.ConnectionStrings["DataBase"].ConnectionString))
                 .AddScoped<IEmployeeService, EmployeeService>()
                 .AddScoped<Form1>()

@@ -14,6 +14,17 @@ namespace EmployeeWagesPract.App.Tests
         }
 
         [Fact]
+        public void CreateEmployee_ShouldThrowWageOfEmployeeException()
+        {
+            var invalidEmployee = new Employee
+            {
+                Surname = "Test",
+                WageAfterTaxes = -12
+            };
+            Assert.Throws<WageOfEmployeeException>(() => _service.Add(invalidEmployee));
+        }
+
+        [Fact]
         public void GetAll_ShouldReturnedAllEmployees()
         {
             var exceptedEmployees = _fixture.CreateMany<Employee>(20).ToList();
